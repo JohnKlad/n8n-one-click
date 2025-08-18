@@ -75,3 +75,49 @@ Circumvent license key validation
 ⚠️ License violation = key revoked, no refunds.
 
 By purchasing and using this software, you agree to these terms.
+
+```
+
+➡️ Done. Access your n8n at:
+👉 https://yourdomain.com
+
+📄 Documentation
+
+See README.ru.md for Russian instructions.
+
+💬 Feedback & Support
+
+Open an issue or contact me at: johnkladua@gmail.com
+
+🌟 Like It? Star It!
+
+If this saved you hours of work — please give it a ⭐!
+
+"n8n should be powerful — not painful to install."
+
+📜 License & Pricing
+
+Installation Package: $10 (one-time)
+
+Full Package: $25 (one-time) + $1/month (updates + support)
+
+License is valid for one (1) server only.
+
+❌ You may NOT:
+
+Resell, share, or redistribute the script
+
+Use it for SaaS or managed services without permission
+
+Circumvent license key validation
+
+⚠️ Commercial SaaS/hosting use requires written approval from the Author.
+⚠️ License violation = key revoked, no refunds.
+
+By purchasing and using this software, you agree to these terms.
+
+📑 License Files
+
+📄 License (English)
+
+📄 Лицензия (Русский)
