@@ -1,10 +1,10 @@
 # n8n-one-click
 🚀 n8n-one-click — Self-Hosted n8n in One Command
-Install n8n on any Linux server with one script. Includes automatic monitoring, backup, updates, and Telegram alerts.
+Install n8n on any Linux server with one click. Includes automatic monitoring, backup, updates, and Telegram alerts.
 
 Perfect for non-developers, freelancers, and DevOps engineers who want a fully automated, self-healing n8n setup — in just a few minutes.
 
-✅ What It Does
+✅ What It Does? 
 This script automates everything:
 
 ✅ Installs Docker, Nginx, and n8n
