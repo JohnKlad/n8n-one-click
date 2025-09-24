@@ -1,73 +1,94 @@
 # n8n One-Click Installer
 
-The fastest way to deploy a production-ready n8n instance on your local Windows machine or a fresh cloud VPS. Our simple `.exe` installers handle everything for you, from initial setup to automatic SSL certificate generation.
+Welcome to the n8n One-Click Installer! This project provides the fastest and simplest way to deploy a production-ready n8n instance on your local Windows machine or a fresh cloud VPS.
 
-![n8n Logo](https://raw.githubusercontent.com/n8n-io/n8n-docs/main/.vuepress/public/images/n8n-logo-symbol-rgb.png)
+Our user-friendly `.exe` installers are designed for everyone—no command-line experience needed. They handle everything from server preparation to automatic SSL certificate generation, getting you up and running in minutes.
 
-## ✨ Features
+![n8n Diagram](https://raw.githubusercontent.com/n8n-io/n8n-docs/main/.vuepress/public/images/n8n-cloud-diagram.png)
+
+---
+
+## ✨ Key Features
 
 -   ✅ **One-Click Setup**: Go from zero to a running n8n instance in minutes.
+-   ✅ **Simple `.exe` Installers**: No complex commands or technical knowledge required.
+-   ✅ **License Validation**: Ensures your copy is genuine before installation begins.
 -   ✅ **Flexible Deployment**: Choose between a local Windows install or a full production setup on any cloud VPS.
--   ✅ **Production-Ready (VPS)**: Includes a PostgreSQL database, a reverse proxy, and automatic SSL certificate generation and renewal with Let's Encrypt.
--   ✅ **User-Friendly**: Simple executable files. No command-line experience needed.
--   ✅ **Secure**: Installs n8n in an isolated environment using Docker.
+-   ✅ **Secure SSH Connection**: Supports both password and SSH key file authentication for your VPS.
+-   ✅ **Automatic Docker Installation**: If Docker isn't present on your VPS, the installer sets it up for you.
+-   ✅ **Full Production Stack (VPS)**:
+    -   Robust **PostgreSQL** database for your data.
+    -   **Nginx Reverse Proxy** for secure and efficient traffic management.
+    -   **Automatic SSL**: Free, trusted SSL certificates from **Let's Encrypt** for your custom domain.
+-   ✅ **Instant Access**: The installer automatically opens your new n8n instance in your browser upon completion.
 
 ---
 
-## 🔑 Step 1: Get Your License Key
+## 🚀 Getting Started: The 3-Step Guide
 
-Our installers require a license key to operate. Getting one is simple:
+### Step 1: Get Your License Key
+A license key is required to use the installer.
 
-1.  **[➡️ Purchase Your License Key Here](https://your-payment-provider.com/link-to-product)**
-2.  After completing the purchase, your unique license key will be sent to the email address you provided.
+1.  **➡️ [Purchase Your License Key Here](https://your-payment-provider.com/link-to-product)**
+2.  After purchase, your unique license key will be sent to your email address.
 3.  Copy the key and keep it ready for the installation step.
 
----
+### Step 2: Prepare Your Environment
+Choose one of the two installation methods below and ensure the prerequisites are met.
 
-## 🚀 Step 2: Choose Your Installation Method
+#### Method A: Local Windows Installation
+Perfect for testing, development, and running workflows on your own PC.
 
+-   **Prerequisites**:
+    -   A modern Windows 10 or Windows 11 PC.
+    -   **Docker Desktop** must be installed and running. Download it from the [official Docker website](https://www.docker.com/products/docker-desktop/).
+
+#### Method B: Cloud VPS Installation (Recommended for Production)
+The best choice for a publicly accessible, secure, and scalable n8n instance.
+
+-   **VPS Requirements**:
+    -   **OS**: **Ubuntu 22.04 / 24.04 LTS** is strongly recommended.
+        -   *Also supports Debian 10/11/12 and other Ubuntu versions.*
+        -   *CentOS/RHEL/Fedora are not officially supported and may require manual adjustments.*
+    -   **Hardware**: At least 1 vCPU, 2 GB RAM, and 20 GB SSD storage.
+    -   **Networking**: Ports `22` (SSH), `80` (HTTP), and `443` (HTTPS) must be open.
+-   **Prerequisites**:
+    1.  **Get a VPS**: From a provider like [DigitalOcean](https://www.digitalocean.com/), [Vultr](https://www.vultr.com/), or [Hetzner](https://www.hetzner.com/). Choose **Ubuntu 22.04 LTS** during setup.
+    2.  **Get SSH Credentials**: Note down your server's IP Address, Username (usually `root`), and Password or SSH Key.
+    3.  **(Optional but Recommended) Use a Domain Name**:
+        -   Purchase a domain from any registrar.
+        -   In your domain's DNS settings, create an **A-record** pointing your domain (e.g., `n8n.yourcompany.com`) to your VPS's IP address.
+        -   Allow some time for DNS to propagate (can take up to 24 hours, but is often much faster).
+
+### Step 3: Run the Installer
 Download the required installer from the **[Releases](https://github.com/JohnKlad/n8n-one-click/releases)** page of this repository.
 
-### Option A: Local Windows Installation
+#### For Local Windows Installation:
+1.  Download and run `install_n8n_windows.exe`.
+2.  The installer will automatically set up and launch n8n.
+3.  Once finished, your instance will open at `http://localhost:5678`.
 
-Perfect for testing, development, and running workflows on your own machine.
-
-**Prerequisites:**
--   A modern Windows 10 or Windows 11 PC.
--   Docker Desktop installed. You can download it from the [official Docker website](https://www.docker.com/products/docker-desktop/).
-
-**Instructions:**
-1.  Download `install_n8n_windows.exe`.
-2.  Double-click the file to run it.
-3.  The installer will set up and launch n8n using Docker Desktop.
-4.  Once complete, your n8n instance will be available at `http://localhost:5678`.
-
-### Option B: VPS Installation (Production)
-
-Ideal for a production-ready, publicly accessible n8n instance with your own domain and SSL.
-
-**Prerequisites:**
--   A **fresh VPS** running **Ubuntu 22.04** or newer.
--   A **domain or subdomain** pointed to your VPS's public IP address (via an A-record).
-
-**Instructions:**
-1.  Download `install_n8n_vps.exe`.
-2.  Double-click the file to run it.
-3.  The installer will ask for the following information:
-    -   Your VPS IP Address or Domain.
-    -   Your SSH Username (usually `root`).
-    -   Your SSH Password.
-    -   The domain/subdomain you want to use for n8n.
-    -   Your email address (for the Let's Encrypt SSL certificate).
+#### For Cloud VPS Installation:
+1.  Download and run `install_n8n_vps.exe`.
+2.  The interactive installer will guide you. Enter the following details when prompted:
     -   Your **License Key**.
-4.  The script will connect to your VPS and perform the entire installation automatically.
-5.  Once complete, you can access your secure n8n instance at the domain you provided (e.g., `https://n8n.yourdomain.com`).
+    -   Your VPS **IP Address**.
+    -   Your SSH **Username** (e.g., `root`).
+    -   Your **Authentication Method** (Password or SSH Key file).
+    -   Your **Domain Name** (if you want an HTTPS setup). Leave blank to install on the IP address.
+    -   Your **Email Address** (for Let's Encrypt SSL notifications).
+3.  Sit back and relax! The process takes 5-10 minutes.
+4.  The installer will output the final URL and open it in your browser.
+
+**Installation Outcomes:**
+-   **Without a Domain**: You will get a working n8n instance at `http://YOUR_VPS_IP:5678`.
+-   **With a Domain**: You will get a secure, production-ready instance at `https://your.domain.com`.
 
 ---
 
-## ⚠️ Troubleshooting: "VPS Connection Failed" Error
+## ⚠️ Troubleshooting: "VPS Connection Failed"
 
-This is the most common issue and is almost always caused by the default security settings of your new VPS. If you see the `[ERROR] VPS connection failed` message, don't worry! Here’s how to solve it.
+This is the most common issue and is almost always caused by the default security settings of a new VPS. If you see the `[ERROR] VPS connection failed` message, here’s how to solve it.
 
 ### The Problem
 Most hosting providers disable password-based login for the main `root` user by default for security reasons. Our installer cannot bypass this protection.
@@ -75,11 +96,9 @@ Most hosting providers disable password-based login for the main `root` user by 
 ### The Solution
 You need to explicitly enable password authentication for `root`. The easiest way is to ask your hosting provider's support team to do it for you.
 
-**Step 1: Log in to your hosting provider's website.**
+**Step 1:** Log in to your hosting provider's website and find your server's IP address.
 
-**Step 2: Find your server's IP address.**
-
-**Step 3: Copy and send the following message to their support team:**
+**Step 2:** Copy the message below and send it to your hosting provider's support team.
 
 > **Subject: Urgent - Enable Root SSH Login with Password**
 >
@@ -96,8 +115,13 @@ You need to explicitly enable password authentication for `root`. The easiest wa
 >
 > Thank you for your help!
 
-The support team will handle this standard request quickly. Once they confirm the changes have been made, run the `install_n8n_vps.exe` installer again. It should now connect successfully.
+The support team will handle this standard request quickly. Once they confirm the changes are made, run the `install_n8n_vps.exe` installer again. It should now connect successfully.
 
+---
+
+## 💬 Support
+
+If you have followed the troubleshooting steps and still face issues, please **[Open an Issue](https://github.com/JohnKlad/n8n-one-click/issues)** on this GitHub repository, and we will be happy to help.
 ---
 
 ## 💬 Support
@@ -117,8 +141,6 @@ If this saved you hours of work — please give it a ⭐!
 📜 License & Pricing
 
 Installation Package: $10 (one-time)
-
-Full Package: $25 (one-time) + $1/month (updates + support)
 
 License is valid for one (1) server only.
 
