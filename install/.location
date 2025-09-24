@@ -1,49 +1,49 @@
-# Полное руководство по установке n8n на Windows
+# Complete Guide to Installing n8n on Windows
 
-Это руководство поможет вам быстро и легко установить n8n на ваш компьютер с Windows с помощью нашего установщика `install_n8n_windows.exe`.
+This guide will help you quickly and easily install n8n on your Windows computer using our `install_n8n_windows.exe` installer.
 
-## Шаг 1: Подготовка
+## Step 1: Preparation
 
-1.  **Скачайте установщик**: Перейдите на страницу [Релизы](https://github.com/JohnKlad/n8n-one-click/releases) и скачайте файл `install_n8n_windows.exe`.
-2.  **Получите лицензионный ключ**: Если у вас его еще нет, [приобретите его здесь](https://your-payment-provider.com/link-to-product). Ключ придет на вашу электронную почту.
+1.  **Download the Installer**: Go to the [Releases](https://github.com/JohnKlad/n8n-one-click/releases) page and download the `install_n8n_windows.exe` file.
+2.  **Get Your License Key**: If you don't have one yet, [purchase it here](https://your-payment-provider.com/link-to-product). The key will be sent to your email address.
 
-## Шаг 2: Запуск установщика
+## Step 2: Running the Installer
 
-1.  **Запустите `install_n8n_windows.exe`**.
-    *   *Примечание*: Windows может показать предупреждение "Windows protected your PC". Нажмите "More info", а затем "Run anyway". Это стандартное поведение для новых программ.
+1.  **Run `install_n8n_windows.exe`**.
+    *   *Note*: Windows might show a "Windows protected your PC" warning. Click "More info," then "Run anyway." This is standard behavior for new applications.
 
-2.  **Введите лицензионный ключ**:
-    *   Откроется окно, запрашивающее ваш лицензионный ключ.
-    *   Вставьте ключ, скопированный из письма, и нажмите "ОК".
-    *   Скрипт проверит подлинность ключа.
+2.  **Enter Your License Key**:
+    *   A window will pop up asking for your license key.
+    *   Paste the key you copied from your email and click "OK."
+    *   The script will validate the key.
 
-## Шаг 3: Автоматическая установка
+## Step 3: Automatic Installation
 
-После проверки ключа установщик сделает все остальное за вас:
+After key validation, the installer will handle everything else for you:
 
-1.  **Проверка и установка Docker**:
-    *   Скрипт проверит, установлен ли на вашем компьютере **Docker Desktop**.
-    *   **Если Docker не найден**: Установщик автоматически скачает и запустит установку Docker Desktop. Следуйте инструкциям на экране, чтобы завершить установку. После этого может потребоваться перезагрузка компьютера. После перезагрузки просто запустите `install_n8n_windows.exe` снова.
-    *   **Если Docker найден, но не запущен**: Установщик попросит вас запустить Docker Desktop. Откройте его через меню "Пуск" и подождите, пока иконка кита в трее перестанет анимироваться.
+1.  **Docker Check and Installation**:
+    *   The script will check if **Docker Desktop** is installed on your computer.
+    *   **If Docker is not found**: The installer will automatically download and start the Docker Desktop installation. Follow the on-screen instructions to complete it. A computer restart may be required. After restarting, simply run `install_n8n_windows.exe` again.
+    *   **If Docker is found but not running**: The installer will ask you to start Docker Desktop. Open it from the Start Menu and wait for the whale icon in the system tray to stop animating.
 
-2.  **Загрузка и запуск n8n**:
-    *   Установщик скачает последнюю версию n8n и настроит его для локального запуска.
-    *   Процесс займет несколько минут.
+2.  **Downloading and Running n8n**:
+    *   The installer will download the latest version of n8n and configure it for local use.
+    *   This process will take a few minutes.
 
-## Шаг 4: Готово!
+## Step 4: All Done!
 
-*   По завершении установки ваш браузер автоматически откроет страницу `http://localhost:5678`.
-*   На этой странице вам нужно будет создать учетную запись администратора для вашего n8n. Это ваш личный, локальный экземпляр!
+*   Once the installation is complete, your browser will automatically open to `http://localhost:5678`.
+*   On this page, you will need to create an administrator account for your n8n instance. This is your personal, local instance!
 
-## ⚠️ Решение проблем
+## ⚠️ Troubleshooting
 
-*   **Ошибка "Лицензионный ключ недействителен"**:
-    *   Убедитесь, что вы скопировали ключ полностью, без лишних пробелов.
-    *   Проверьте, не истек ли срок действия ключа.
+*   **"Invalid License Key" Error**:
+    *   Ensure you copied the key completely, with no extra spaces.
+    *   Check if the key has expired.
 
-*   **Docker не запускается**:
-    *   Убедитесь, что в BIOS вашего компьютера включена виртуализация (VT-x/AMD-V).
-    *   Проверьте, что у вас достаточно оперативной памяти (рекомендуется от 8 ГБ).
-    *   Попробуйте перезапустить Docker Desktop.
+*   **Docker Fails to Start**:
+    *   Ensure virtualization (VT-x/AMD-V) is enabled in your computer's BIOS.
+    *   Check that you have enough RAM (8 GB is recommended).
+    *   Try restarting Docker Desktop.
 
-Если у вас возникли другие проблемы, пожалуйста, [создайте Issue](https://github.com/JohnKlad/n8n-one-click/issues) в репозитории.
+If you encounter other issues, please [open an Issue](https://github.com/JohnKlad/n8n-one-click/issues) on the repository.
