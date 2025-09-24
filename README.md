@@ -34,28 +34,29 @@ A license key is required to use the installer.
 3.  Copy the key and keep it ready for the installation step.
 
 ### Step 2: Prepare Your Environment
-Choose one of the two installation methods below and ensure the prerequisites are met.
+Choose one of the two installation methods below.
 
 #### Method A: Local Windows Installation
 Perfect for testing, development, and running workflows on your own PC.
 
 -   **Prerequisites**:
     -   A modern Windows 10 or Windows 11 PC.
-    -   **Docker Desktop** must be installed and running. Download it from the [official Docker website](https://www.docker.com/products/docker-desktop/).
+    -   **Docker Desktop**: n8n runs inside Docker. You are welcome to install it manually beforehand from the [official Docker website](https://www.docker.com/products/docker-desktop/). If Docker Desktop is not found on your system, don't worry—our installer will automatically handle the installation for you.
 
 #### Method B: Cloud VPS Installation (Recommended for Production)
 The best choice for a publicly accessible, secure, and scalable n8n instance.
 
 -   **VPS Requirements**:
-    -   **OS**: **Ubuntu 22.04 / 24.04 LTS** is strongly recommended.
-        -   *Also supports Debian 10/11/12 and other Ubuntu versions.*
-        -   *CentOS/RHEL/Fedora are not officially supported and may require manual adjustments.*
+    -   **OS**: **Ubuntu 22.04 / 24.04 LTS** is recommended for best results.
+	-   *Also supports Debian 10/11/12 and other Ubuntu versions.*
+	-   *CentOS/RHEL/Fedora are not officially supported and may require manual adjustments.*
     -   **Hardware**: At least 1 vCPU, 2 GB RAM, and 20 GB SSD storage.
     -   **Networking**: Ports `22` (SSH), `80` (HTTP), and `443` (HTTPS) must be open.
 -   **Prerequisites**:
     1.  **Get a VPS**: From a provider like [DigitalOcean](https://www.digitalocean.com/), [Vultr](https://www.vultr.com/), or [Hetzner](https://www.hetzner.com/). Choose **Ubuntu 22.04 LTS** during setup.
     2.  **Get SSH Credentials**: Note down your server's IP Address, Username (usually `root`), and Password or SSH Key.
-    3.  **(Optional but Recommended) Use a Domain Name**:
+    3.  **Docker**: n8n runs inside Docker. If it is not found on your VPS, our script will install it for you automatically. You do not need to do anything.
+    4.  **(Optional but Recommended) Use a Domain Name**:
         -   Purchase a domain from any registrar.
         -   In your domain's DNS settings, create an **A-record** pointing your domain (e.g., `n8n.yourcompany.com`) to your VPS's IP address.
         -   Allow some time for DNS to propagate (can take up to 24 hours, but is often much faster).
@@ -101,18 +102,18 @@ You need to explicitly enable password authentication for `root`. The easiest wa
 **Step 2:** Copy the message below and send it to your hosting provider's support team.
 
 > **Subject: Urgent - Enable Root SSH Login with Password**
->
+> 
 > Hello,
->
+> 
 > I am trying to run an automated setup script on my new VPS (IP: `[your-server-ip-here]`), but it cannot connect via SSH. My script needs to log in as the `root` user with a password.
->
+> 
 > Could you please edit the SSH configuration file (`/etc/ssh/sshd_config`) on my server and ensure the following two parameters are set?
->
+> 
 > 1.  `PermitRootLogin yes`
 > 2.  `PasswordAuthentication yes`
->
+> 
 > After saving the changes, please restart the SSH service with the command: `sudo systemctl restart sshd`.
->
+> 
 > Thank you for your help!
 
 The support team will handle this standard request quickly. Once they confirm the changes are made, run the `install_n8n_vps.exe` installer again. It should now connect successfully.
@@ -122,8 +123,8 @@ The support team will handle this standard request quickly. Once they confirm th
 ## 💬 Support
 
 If you have followed the troubleshooting steps and still face issues, please **[Open an Issue](https://github.com/JohnKlad/n8n-one-click/issues)** on this GitHub repository, and we will be happy to help.
----
 
+---
 ## 💬 Support
 
 If you have followed the troubleshooting steps and still face issues, please open an [Issue](https://github.com/JohnKlad/n8n-one-click/issues) on this GitHub repository, and we will be happy to help.
