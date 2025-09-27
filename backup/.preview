@@ -1,0 +1,33 @@
+# 🚀 SNEAK PEEK: Automatic Backup & Restore for n8n-one-click!
+
+Your workflows are valuable. Your time is priceless. That''s why we''re excited to announce a powerful, free add-on coming soon for all `n8n-one-click` users.
+
+**Introducing: The "Peace of Mind" Backup System.**
+
+---
+
+### **Never Lose a Workflow Again**
+
+Have you ever worried about a server crash, a mistaken deletion, or a corrupted database wiping out your hard work? Those days are over.
+
+This upcoming update will introduce a fully automated backup solution that works silently in the background to protect your entire n8n environment.
+
+#### ✨ **Key Features:**
+
+-   📦 **Zero-Configuration Backups:**
+    True to the "one-click" philosophy, the system will be pre-configured to run automatic, scheduled backups of your n8n data, including all workflows, credentials, and execution logs.
+
+-   🛡️ **Set-It-and-Forget-It Security:**
+    Once enabled, you don''t have to think about it again. The system ensures you always have a recent, safe copy of your data, ready to be restored at a moment''s notice.
+
+-   🔄 **Simple & Fast Restore:**
+    Disaster strikes? A simple command will allow you to restore your n8n instance to the last known good state, minimizing downtime and getting you back to building in minutes.
+
+-   🎁 **A Free Update for Everyone:**
+    This is not a premium feature. As a thank you to the community, this powerful backup system will be available as a **free, easy-to-install add-on** for anyone who has set up their instance using the `n8n-one-click` script.
+
+---
+
+**Focus on automating. We''ll handle the safety net.**
+
+**Stay tuned! Your n8n instance is about to become invincible.**

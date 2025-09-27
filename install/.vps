@@ -1,0 +1,112 @@
+# The Ultimate Guide to Installing n8n with the "n8n-one-click" Script
+
+Welcome! This guide will walk you through installing your own n8n instance on a fresh VPS (Virtual Private Server). We''ve made the process as simple as possible. Just follow these steps, and you''ll be automating in no time!
+
+---
+
+### **Part 1: Prerequisites**
+
+Before you start, you only need two things:
+
+1.  **A VPS running Ubuntu:** Any modern version (20.04, 22.04, etc.) will work. You can get a VPS from providers like DigitalOcean, Linode, Vultr, Hetzner, or any other cloud host.
+2.  **Access to your VPS terminal:** You need to be logged in as the `root` user or a user with `sudo` privileges.
+
+---
+
+### **Part 2: The Installation Process**
+
+This involves three simple commands in your server''s terminal.
+
+#### **Step 1: Download the Script**
+
+First, we need to download the `n8n-one-click` script to your server. Copy and paste this command into your terminal and press Enter:
+
+```bash
+wget -O n8n-one-click.sh https://raw.githubusercontent.com/JohnKlad/n8n-one-click/main/n8n-one-click.sh
+```
+
+This command downloads the script and saves it as `n8n-one-click.sh`.
+
+#### **Step 2: Make the Script Executable**
+
+By default, the downloaded file isn''t allowed to run. We need to give it permission. Run this command:
+
+```bash
+chmod +x n8n-one-click.sh
+```
+
+#### **Step 3: Run the Script!**
+
+Now, you''re ready to start the installation. Run the script with this command:
+
+```bash
+./n8n-one-click.sh
+```
+
+The script will now start and ask you a series of questions. Let''s go through them one by one.
+
+---
+
+### **Part 3: Answering the Script''s Questions**
+
+The script will guide you through the setup. Here''s what each question means and how to answer it.
+
+#### **Question 1: Installation Type (Domain or IP)**
+
+The script will ask if you want to install n8n on a **domain** (like `n8n.mywebsite.com`) or just use the server''s **IP address**.
+
+*   **Domain (Recommended):** This is the professional and secure way. It will set up a proper `https://` address with a free SSL certificate. Choose this for any serious work.
+*   **IP Address:** This is simpler and faster but less secure (`http://`). It''s fine for quick tests but not recommended for production.
+
+You will be prompted: `Do you want to install n8n on a domain? (y/n)`
+*   Type `y` for a domain installation.
+*   Type `n` for an IP address installation.
+
+---
+
+#### **If you chose DOMAIN installation:**
+
+You''ll be asked for three pieces of information.
+
+**1. "Enter your root domain (e.g., example.com):"**
+*   **What it is:** This is the main domain name you own, without any `www` or other prefixes.
+*   **Where to get it:** You can buy a domain from registrars like Namecheap, GoDaddy, Google Domains, etc. If you already own one, just enter it here.
+*   **DNS Setup:** Before you proceed, you must go to your domain registrar''s DNS settings and create an **A record**.
+    *   **Host/Name:** Set this to the subdomain you want (e.g., `n8n`).
+    *   **Value/Points to:** Set this to your **VPS IP Address**.
+    *   **Example:** If you want to use `n8n.mydomain.com`, create an A record for `n8n` that points to your server''s IP.
+
+**2. "Enter the subdomain for n8n (e.g., n8n):"**
+*   **What it is:** This is the prefix for your n8n URL. Most people use `n8n`, `automation`, or `flows`.
+*   **Example:** If you enter `n8n`, your final URL will be `n8n.yourdomain.com`.
+
+**3. "Enter your email address (for SSL certificate renewal):"**
+*   **What it is:** Let''s Encrypt (the service providing your free SSL certificate) needs an email to send you reminders if your certificate is about to expire. The script handles renewal automatically, but this is a required safety measure.
+*   **Action:** Enter any valid email address you own.
+
+---
+
+#### **Final Questions (for both installation types):**
+
+**1. "Enter the desired timezone..."**
+*   **What it is:** This sets the time for your n8n instance, which is important for scheduling workflows.
+*   **How to answer:** Enter a valid timezone in the `Continent/City` format.
+*   **Examples:** `Europe/London`, `America/New_York`, `Asia/Tokyo`. You can find a full list online if needed.
+
+**2. "Enter the username for n8n:"**
+*   **What it is:** This will be the username you use to log in to the n8n interface.
+
+**3. "Enter the password for n8n:"**
+*   **What it is:** The password for your n8n login. Choose something strong!
+
+---
+
+### **Part 4: Installation Complete!**
+
+After you answer the last question, the script will take care of everything else. It will install Docker, set up n8n, configure the web server, and secure your site (if you chose the domain option).
+
+Once it''s finished, you will see a **SUCCESS** message displaying:
+*   Your n8n URL (e.g., `https://n8n.yourdomain.com`)
+*   Your n8n username and password
+
+**Congratulations!** You can now navigate to that URL in your browser, log in, and start building your automations.
