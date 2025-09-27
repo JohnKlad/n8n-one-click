@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n One-Click Installer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f8fa;
+            color: #24292e;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #586069;
+        }
+        .section {
+            background-color: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .section h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin-bottom: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 5px;
+            transition: background-color 0.2s;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        .button.primary {
+            background-color: #0366d6;
+        }
+        .button.primary:hover {
+            background-color: #005cc5;
+        }
+        .button.secondary {
+            background-color: #6a737d;
+        }
+        .button.secondary:hover {
+            background-color: #586069;
+        }
+        .social-links {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .social-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.5em;
+            color: #0366d6;
+        }
+        .social-links a:hover {
+            color: #005cc5;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #586069;
+            font-size: 0.9em;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>n8n One-Click Installer</h1>
+            <p>The fastest and simplest way to deploy a production-ready n8n instance.</p>
+        </header>
+
+        <div class="section">
+            <h2><i class="fas fa-rocket"></i> Project Overview</h2>
+            <p>
+                The n8n One-Click Installer is designed for everyone—no command-line experience needed. It handles everything from server preparation to automatic SSL certificate generation, getting your n8n instance up and running in minutes.
+            </p>
+            <div class="video-container">
+                <!-- Replace with your YouTube video embed code -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-check-circle"></i> Key Features</h2>
+            <ul>
+                <li><strong>One-Click Setup:</strong> Go from zero to a running n8n instance in minutes.</li>
+                <li><strong>Simple .exe Installers:</strong> No complex commands or technical knowledge required.</li>
+                <li><strong>Flexible Deployment:</strong> Choose between a local Windows install or a full production setup on any cloud VPS.</li>
+                <li><strong>Secure & Automatic:</strong> Automatic Docker installation, Nginx reverse proxy, and free SSL certificates from Let's Encrypt.</li>
+                <li><strong>Instant Access:</strong> The installer automatically opens your new n8n instance in your browser upon completion.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-map-signs"></i> Roadmap & Future Plans</h2>
+            <p>We are continuously working to improve the n8n One-Click Installer. Here's what's on the horizon:</p>
+            <ul>
+                <li><strong>Expanded Cloud Support:</strong> Adding specific installers for more cloud providers.</li>
+                <li><strong>Advanced Configuration Options:</strong> UI-based options for custom n8n environment variables.</li>
+                <li><strong>One-Click Updates:</strong> A simple way to update your n8n instance to the latest version.</li>
+                <li><strong>Community-driven Features:</strong> We are listening to your feedback for our next features!</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-file-pdf"></i> Documentation</h2>
+            <p>For a detailed guide, you can view our project documentation below.</p>
+            <!-- Replace with your PDF file -->
+            <iframe src="YOUR_PDF_FILE.pdf" width="100%" height="500px"></iframe>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-shopping-cart"></i> Get Your License</h2>
+            <p>To get started, purchase a license key. Each license is valid for one server and supports the project's development.</p>
+            <div class="button-group">
+                <a href="https://your-payment-link.com/buy-license" class="button primary" target="_blank">Buy a License Key</a>
+                <a href="https://your-payment-link.com/subscribe" class="button" target="_blank">Subscribe</a>
+                <a href="https://your-payment-link.com/donate" class="button secondary" target="_blank">Buy Me a Coffee <i class="fas fa-coffee"></i></a>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://youtube.com/your-channel" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/your-profile" target="_blank" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
+            <a href="https://reddit.com/r/your-subreddit" target="_blank" title="Reddit"><i class="fab fa-reddit"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 n8n One-Click Installer. All Rights Reserved.</p>
+        <p>Developed by JohnKlad</p>
+    </footer>
+</body>
+</html>
