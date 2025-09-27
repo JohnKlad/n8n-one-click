@@ -1,0 +1,54 @@
+# 🚀 COMING SOON: The Autonomous Control System for n8n-one-click! 🚀
+
+Get ready to experience n8n like never before. We are building a true "set-it-and-forget-it" management system that makes your `n8n-one-click` instance completely self-sufficient.
+
+Forget server admin. Forget manual updates. Forget worrying about crashes. **Just build.**
+
+---
+
+### ✨ **Your Personal n8n Guardian**
+
+This isn't just a monitoring tool; it's an autonomous guardian for your automation platform. It works silently in the background, ensuring your n8n is always safe, healthy, and up-to-date.
+
+-   📦 **True "Out-of-the-Box" Solution:**
+    No complex configuration needed. The system is designed to work intelligently from the moment it's activated. You don't need to understand what's happening on the server—the system handles it all.
+
+-   🛡️ **Intelligent Self-Healing & Auto-Rollbacks:**
+    Crashes? The system detects them and automatically restarts services. A bad update? The system can automatically roll back to the last stable version. Your n8n instance is always protected.
+
+-   🔄 **Fully Automated Backups & Updates:**
+    The system takes complete control of scheduled backups and applying safe updates. You get the latest features and peace of mind without lifting a finger.
+
+-   📲 **Stay Informed via Telegram & WhatsApp:**
+    Receive critical alerts and "State of n8n" summaries directly on your phone. You'll always know what's going on, without ever needing to log into the server.
+
+### The Vision: You & Your Creativity
+
+Our goal is to completely remove the barrier between you and your automations. The monitoring system takes care of the technical complexities, so you can enjoy the creative process.
+
+```plaintext
++------------------------------------------------+
+|               YOU (The Creator)                |
+|        [ Focusing 100% on Building ]           |
++------------------------------------------------+
+                        ^
+                        | (Pure n8n Experience)
+                        v
++------------------------------------------------+
+|        n8n-one-click Instance                |
++------------------------------------------------+
+| ▲ ▼                                            |
+| | |  (Managed, Protected, & Healed by...)      |
+| ▼ ▲                                            |
++------------------------------------------------+
+|   AUTONOMOUS MONITORING & MANAGEMENT SYSTEM    |
+|                                                |
+| [ Backups | Updates | Self-Healing | Alerts ]  |
++------------------------------------------------+
+```
+
+---
+
+**Stop managing servers. Start building automations.**
+
+**Stay tuned. The future of effortless n8n is on its way.**
