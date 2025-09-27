@@ -1,6 +1,6 @@
 # n8n One-Click Installer
 
-# [![Buy a License](https://img.shields.io/badge/Buy%20on-Gumroad-orange?style=for-the-badge&logo=gumroad)](https://johnklad.gumroad.com/l/hdvcbc)
+# [![Buy a License](https://img.shields.io/badge/Buy%20a-License-orange?style=for-the-badge&logo=gumroad)](https://johnklad.gumroad.com/l/hdvcbc)
 
 Welcome to the n8n One-Click Installer! This project provides the fastest and simplest way to deploy a production-ready n8n instance on your local Windows machine or a fresh cloud VPS.
 
