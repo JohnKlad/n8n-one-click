@@ -1,12 +1,64 @@
 # n8n One-Click Installer
 
 # [![Buy a License](https://img.shields.io/badge/Buy%20a-License-orange?style=for-the-badge&logo=gumroad)](https://johnklad.gumroad.com/l/hdvcbc)
+# [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/K3K31LWLIE)
 
 Welcome to the n8n One-Click Installer! This project provides the fastest and simplest way to deploy a production-ready n8n instance on your local Windows machine or a fresh cloud VPS.
 
 Our user-friendly `.exe` installers are designed for everyone—no command-line experience needed. They handle everything from server preparation to automatic SSL certificate generation, getting you up and running in minutes.
 
-![n8n Diagram](https://raw.githubusercontent.com/n8n-io/n8n-docs/main/.vuepress/public/images/n8n-cloud-diagram.png)
+The fastest way to deploy a production-ready n8n instance on your Windows machine or any cloud VPS. **No command line or technical skills needed.**
+
+---
+
+## How It Works: The "One-Click" Magic ✨
+
+We believe powerful tools should be accessible to everyone. Our installer is designed to handle all the complex technical setup, so you can focus on what truly matters: building automations.
+
+| Your Part (The Easy Stuff)                                  | The Installer's Part (The Hard Stuff, Done for You)         |
+| ----------------------------------------------------------- | ----------------------------------------------------------- |
+| ✅ **1. Run the `.exe` installer.**                           | ⚙️ Installs and configures all required software.           |
+| ✅ **2. Enter your domain name and email.**                   | 🐘 Deploys a robust **PostgreSQL** database for your data.    |
+| ✅ **3. Grab a coffee.**                                      | 🚀 Sets up your **n8n instance** to run as a service.       |
+|                                                             | 🌐 Configures **Nginx** as a secure reverse proxy.          |
+|                                                             | 🔒 Provisions and auto-renews a free **SSL certificate** (Let's Encrypt). |
+|                                                             | 🔗 Connects all services together seamlessly.               |
+|                                                             | 🎯 Opens your new, ready-to-use n8n instance in your browser. |
+
+### What You Get: A Production-Ready Architecture
+
+In just a few minutes, you get a fully configured, secure, and scalable n8n setup that would typically take an expert hours to build.
+
+```mermaid
+graph TD
+    subgraph "Your Part"
+        A[👨‍💻 You: Just Run the Installer]
+    end
+
+    subgraph "The Magic: Handled by the Installer"
+        B(🪄 One-Click Installer)
+        C(🐘 PostgreSQL Database)
+        D(🚀 n8n Instance)
+        E(🌐 Nginx Reverse Proxy)
+        F(🔒 Let's Encrypt SSL)
+    end
+    
+    subgraph "Your Final Result"
+        G[✅ Secure, Production-Ready n8n on Your Domain]
+    end
+
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    B --> F
+    
+    E --> D
+    D <--> C
+    F --> E
+    
+    E --> G
+```
 
 ---
 
