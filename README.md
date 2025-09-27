@@ -29,7 +29,7 @@ Our user-friendly `.exe` installers are designed for everyone—no command-line 
 ### Step 1: Get Your License Key
 A license key is required to use the installer.
 
-1.  **➡️ [Purchase Your License Key Here](https://your-payment-provider.com/link-to-product)**
+1.  **➡️ [Purchase Your License Key Here](https://johnklad.gumroad.com/l/hdvcbc)**
 2.  After purchase, your unique license key will be sent to your email address.
 3.  Copy the key and keep it ready for the installation step.
 
