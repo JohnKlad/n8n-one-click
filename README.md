@@ -17,7 +17,7 @@ We believe powerful tools should be accessible to everyone. Our installer is des
 
 | Your Part (The Easy Stuff)                                  | The Installer's Part (The Hard Stuff, Done for You)         |
 | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| ✅ **1. Buy a license                                      | ⚙️ Installs and configures all required software.           |
+| ✅ **1. Buy a license.**                                   | ⚙️ Installs and configures all required software.           |
 | ✅ **2. Run the `.exe` installer.**                        | 🐘 Deploys a robust **PostgreSQL** database for your data.  |
 | ✅ **3. Enter your domain name and email.**                | 🚀 Sets up your **n8n instance** to run as a service.       |
 | ✅ **4. Grab a coffee.**                                   | 🌐 Configures **Nginx** as a secure reverse proxy.          |
