@@ -10,5 +10,12 @@ module.exports = {
     port: 3000,
     open: true,
   },
-  // Missing PostCSS configuration that needs to be added
+  style: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  },
 };
