@@ -3,194 +3,934 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>n8n One-Click Installer</title>
+    <title>n8n One-Click Installer - Deploy Production-Ready n8n in Minutes</title>
+    <meta name="description" content="The fastest way to deploy a production-ready n8n instance. No command line needed. One-click setup with automatic SSL, Docker, and Nginx configuration.">
+    <meta name="keywords" content="n8n, installer, automation, workflow, no-code, deployment, docker, ssl">
+    <meta property="og:title" content="n8n One-Click Installer">
+    <meta property="og:description" content="Deploy production-ready n8n instances in minutes with our one-click installer">
+    <meta property="og:type" content="website">
+    
+    <!-- Modern fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+        :root {
+            /* Modern color palette */
+            --primary-dark-blue: #1e293b;
+            --secondary-dark-blue: #334155;
+            --light-gray: #f8fafc;
+            --medium-gray: #64748b;
+            --dark-gray: #475569;
+            --white: #ffffff;
+            --n8n-orange: #ff6d5a;
+            --coinbase-blue: #0052ff;
+            --accent-blue: #3b82f6;
+            --success-green: #10b981;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-light: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        [data-theme="dark"] {
+            --primary-dark-blue: #0f172a;
+            --secondary-dark-blue: #1e293b;
+            --light-gray: #1e293b;
+            --medium-gray: #94a3b8;
+            --dark-gray: #cbd5e1;
+            --white: #0f172a;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-light: #334155;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f6f8fa;
-            color: #24292e;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light-gray);
+            scroll-behavior: smooth;
         }
-        header {
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--white);
+            border: 2px solid var(--border-light);
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark-blue) 0%, var(--secondary-dark-blue) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
             text-align: center;
-            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
         }
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
-        header p {
-            font-size: 1.2em;
-            color: #586069;
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--n8n-orange);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(255, 109, 90, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 109, 90, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section styling */
         .section {
-            background-color: #fff;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            padding: 20px;
+            padding: 80px 0;
         }
-        .section h2 {
-            font-size: 2em;
-            border-bottom: 1px solid #e1e4e8;
-            padding-bottom: 10px;
-            margin-top: 0;
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--coinbase-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Video Section */
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            margin-bottom: 20px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
         }
+
         .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            border-radius: 16px;
         }
-        .button-group {
-            text-align: center;
-            margin-top: 20px;
+
+        /* Roadmap Timeline */
+        .roadmap-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
         }
-        .button {
-            display: inline-block;
-            padding: 12px 24px;
-            font-size: 1.1em;
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-light);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--coinbase-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+            margin: 0 40px;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.3rem;
             font-weight: 600;
-            color: #fff;
-            background-color: #28a745;
-            border: none;
-            border-radius: 6px;
-            text-decoration: none;
-            margin: 5px;
-            transition: background-color 0.2s;
+            margin-bottom: 12px;
+            color: var(--text-primary);
         }
-        .button:hover {
-            background-color: #218838;
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
-        .button.primary {
-            background-color: #0366d6;
+
+        /* Documentation Section */
+        .docs-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .button.primary:hover {
-            background-color: #005cc5;
+
+        .docs-preview {
+            background: var(--light-gray);
+            border: 2px solid var(--border-light);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
         }
-        .button.secondary {
-            background-color: #6a737d;
+
+        .docs-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--n8n-orange), #ff8f82);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            color: var(--white);
         }
-        .button.secondary:hover {
-            background-color: #586069;
+
+        .docs-preview h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
         }
-        /* New style for the Crypto button */
-        .button.crypto {
-            background-color: #1652f0;
+
+        .docs-preview p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.7;
         }
-        .button.crypto:hover {
-            background-color: #0b41c7;
+
+        /* Pricing Section */
+        .pricing-section {
+            background: linear-gradient(135deg, var(--primary-dark-blue) 0%, var(--secondary-dark-blue) 100%);
+            color: var(--white);
         }
+
+        .pricing-section .section-title,
+        .pricing-section .section-subtitle {
+            color: var(--white);
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            color: var(--text-primary);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--n8n-orange);
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        .pricing-features {
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-item i {
+            color: var(--success-green);
+            font-size: 1.2rem;
+        }
+
+        .pricing-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-crypto {
+            background: var(--coinbase-blue);
+            color: var(--white);
+        }
+
+        .btn-crypto:hover {
+            background: #0043cc;
+            transform: translateY(-2px);
+        }
+
+        .btn-support {
+            background: var(--n8n-orange);
+            color: var(--white);
+        }
+
+        .btn-support:hover {
+            background: #ff5a47;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark-blue);
+            color: var(--white);
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-info p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
         .social-links {
-            text-align: center;
-            padding: 20px 0;
+            display: flex;
+            gap: 20px;
         }
+
         .social-links a {
-            margin: 0 15px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
             text-decoration: none;
-            font-size: 1.5em;
-            color: #0366d6;
         }
+
         .social-links a:hover {
-            color: #005cc5;
+            background: var(--n8n-orange);
+            transform: translateY(-3px);
         }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            color: #586069;
-            font-size: 0.9em;
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .timeline-icon {
+                margin: 0 0 20px 0;
+            }
+
+            .roadmap-timeline::before {
+                display: none;
+            }
+
+            .pricing-buttons {
+                gap: 16px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .feature-card,
+            .timeline-content,
+            .pricing-card {
+                padding: 25px 20px;
+            }
+
+            .docs-preview {
+                padding: 40px 25px;
+            }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
             <h1>n8n One-Click Installer</h1>
-            <p>The fastest and simplest way to deploy a production-ready n8n instance.</p>
-        </header>
-
-        <div class="section">
-            <h2><i class="fas fa-rocket"></i> Project Overview</h2>
-            <p>
-                The n8n One-Click Installer is designed for everyone—no command-line experience needed. It handles everything from server preparation to automatic SSL certificate generation, domain setup, and launching n8n.
-            </p>
-            <div class="video-container">
-                <!-- Replace with your YouTube video embed code -->
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="hero-subtitle">The fastest way to deploy a production-ready n8n instance. No command line needed.</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                    Buy License Key
+                </a>
+                <a href="#demo" class="btn btn-secondary">
+                    <i class="fas fa-play"></i>
+                    View Demo
+                </a>
             </div>
         </div>
+    </section>
 
-        <div class="section">
-            <h2><i class="fas fa-check-circle"></i> Key Features</h2>
-            <ul>
-                <li><strong>One-Click Setup:</strong> Go from zero to a running n8n instance in minutes.</li>
-                <li><strong>Simple .exe Installers:</strong> No complex commands or technical knowledge required.</li>
-                <li><strong>Flexible Deployment:</strong> Choose between a local Windows install or a full production setup on any cloud VPS.</li>
-                <li><strong>Secure & Automatic:</strong> Automatic Docker installation, Nginx reverse proxy, and free SSL certificates from Let's Encrypt.</li>
-                <li><strong>Instant Access:</strong> The installer automatically opens your new n8n instance in your browser upon completion.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2><i class="fas fa-map-signs"></i> Roadmap & Future Plans</h2>
-            <p>We are continuously working to improve the n8n One-Click Installer. Here's what's on the horizon:</p>
-            <ul>
-                <li><strong>Expanded Cloud Support:</strong> Adding specific installers for more cloud providers.</li>
-                <li><strong>Advanced Configuration Options:</strong> UI-based options for custom n8n environment variables.</li>
-                <li><strong>One-Click Updates:</strong> A simple way to update your n8n instance to the latest version.</li>
-                <li><strong>Community-driven Features:</strong> We are listening to your feedback for our next features!</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2><i class="fas fa-file-pdf"></i> Documentation</h2>
-            <p>For a detailed guide, you can view our project documentation below.</p>
-            <!-- Replace with your PDF file -->
-            <iframe src="YOUR_PDF_FILE.pdf" width="100%" height="500px"></iframe>
-        </div>
-        
-        <div class="section">
-            <h2><i class="fas fa-shopping-cart"></i> Get Your License</h2>
-            <p>To get started, purchase a license key. Each license is valid for one server and supports the project's development.</p>
-            <div class="button-group">
-                <a href="https://johnklad.gumroad.com/l/hdvcbc" class="button primary" target="_blank">Buy a License Key</a>
-                <a href="https://commerce.coinbase.com/checkout/c0f7e153-4e20-4a4d-b562-3e29190490dd" class="button crypto" target="_blank">Pay with Crypto <i class="fab fa-bitcoin"></i></a>
-                <a href="https://ko-fi.com/K3K31LWLIE" class="button secondary" target="_blank">Buy Me a Coffee <i class="fas fa-coffee"></i></a>
+    <!-- Key Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Our Installer?</h2>
+                <p class="section-subtitle">Everything you need to get n8n running in production, without the complexity</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">One-Click Setup</h3>
+                    <p class="feature-description">Go from zero to a running n8n instance in minutes. No complex commands or technical knowledge required.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <h3 class="feature-title">No Technical Skills Required</h3>
+                    <p class="feature-description">Simple .exe installers designed for everyone. Just click, enter your details, and you're ready to go.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="feature-title">Full Production Stack</h3>
+                    <p class="feature-description">Complete setup with PostgreSQL database, Docker containers, and all dependencies configured automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="feature-title">Automatic SSL</h3>
+                    <p class="feature-description">Free, trusted SSL certificates from Let's Encrypt with automatic renewal. Your data stays secure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="feature-title">Flexible Deployment</h3>
+                    <p class="feature-description">Deploy locally on Windows or on any cloud VPS. Works with DigitalOcean, AWS, Google Cloud, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Instant Access</h3>
+                    <p class="feature-description">Your n8n instance opens automatically in your browser when installation completes. Start building workflows immediately.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="social-links">
-            <a href="https://youtube.com/your-channel" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://x.com/your-profile" target="_blank" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
-            <a href="https://reddit.com/r/your-subreddit" target="_blank" title="Reddit"><i class="fab fa-reddit"></i></a>
+    <!-- Video Showcase Section -->
+    <section class="section video-section" id="demo" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">See It In Action</h2>
+                <p class="section-subtitle">Watch how easy it is to deploy n8n with our one-click installer</p>
+            </div>
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2024 n8n One-Click Installer. All Rights Reserved.</p>
-        <p>Developed by JohnKlad</p>
+    <!-- Roadmap Section -->
+    <section class="section roadmap-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Future Plans</h2>
+                <p class="section-subtitle">Our roadmap for making n8n deployment even better</p>
+            </div>
+            <div class="roadmap-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Expanded Cloud Support</h4>
+                        <p>Adding specific installers for more cloud providers including Azure, Linode, and Vultr.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Advanced Configuration Options</h4>
+                        <p>UI-based options for custom n8n environment variables and advanced settings.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>One-Click Updates</h4>
+                        <p>A simple way to update your n8n instance to the latest version with zero downtime.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Community-driven Features</h4>
+                        <p>We're listening to your feedback to build the features you need most.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="section docs-section" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Project Documentation</h2>
+                <p class="section-subtitle">Everything you need to know to get started</p>
+            </div>
+            <div class="docs-content">
+                <div class="docs-preview">
+                    <div class="docs-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Complete Installation Guide</h3>
+                    <p>Step-by-step instructions for deploying n8n on Windows machines and cloud VPS servers. Includes troubleshooting tips and best practices.</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download PDF Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get Your License</h2>
+                <p class="section-subtitle">One-time payment • Valid for one server • Supports development</p>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="price">$10</div>
+                    <div class="price-period">one-time payment</div>
+                </div>
+                <div class="pricing-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>License valid for one server</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Lifetime updates included</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Community support</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Installation guide included</span>
+                    </div>
+                </div>
+                <div class="pricing-buttons">
+                    <a href="https://johnklad.gumroad.com/l/hdvcbc" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy a License Key
+                    </a>
+                    <a href="https://commerce.coinbase.com/checkout/c0f7e153-4e20-4a4d-b562-3e29190490dd" class="btn btn-crypto" target="_blank">
+                        <i class="fab fa-bitcoin"></i>
+                        Buy with Coin
+                    </a>
+                    <a href="https://ko-fi.com/K3K31LWLIE" class="btn btn-support" target="_blank">
+                        <i class="fas fa-coffee"></i>
+                        Buy Me a Coffee
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-bell"></i>
+                        Subscribe for Updates
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2024 n8n One-Click Installer. Developed by JohnKlad</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://youtube.com/your-channel" target="_blank" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://x.com/your-profile" target="_blank" title="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://reddit.com/r/your-subreddit" target="_blank" title="Reddit">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                    <a href="https://github.com/JohnKlad/n8n-one-click" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Ko-fi Widget -->
-    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-    <script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'K3K31LWLIE');kofiwidget2.draw();</script>
+    <!-- JavaScript -->
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        window.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.feature-card, .timeline-item, .pricing-card');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
+</html>
 </html>
