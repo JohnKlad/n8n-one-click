@@ -51,6 +51,26 @@
             --border-light: #334155;
         }
 
+        /* Dark mode specific overrides */
+        [data-theme="dark"] .btn-neutral {
+            background: #6b7280;
+            color: #f9fafb;
+        }
+
+        [data-theme="dark"] .btn-neutral:hover {
+            background: #4b5563;
+        }
+
+        [data-theme="dark"] .btn-secondary {
+            color: #f9fafb;
+            border-color: rgba(249, 250, 251, 0.3);
+        }
+
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(249, 250, 251, 0.1);
+            color: #f9fafb;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -119,6 +139,7 @@
             font-weight: 700;
             margin-bottom: 24px;
             animation: fadeInUp 0.8s ease-out;
+            color: var(--white);
         }
 
         .hero-subtitle {
@@ -129,6 +150,7 @@
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 0.8s ease-out 0.2s both;
+            color: var(--white);
         }
 
         .hero-buttons {
@@ -189,6 +211,7 @@
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
             transform: translateY(-3px);
         }
 
@@ -508,6 +531,62 @@
             transform: translateY(-2px);
         }
 
+        /* Green button for "Buy a License Key" */
+        .btn-green {
+            background: var(--success-green);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-green:hover {
+            background: #059669;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+        }
+
+        /* Rainbow gradient animation for "Buy Me a Coffee" button */
+        .btn-rainbow {
+            background: linear-gradient(-45deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0066ff, #6600ff, #ff0066);
+            background-size: 400% 400%;
+            color: var(--white);
+            animation: rainbow 3s ease infinite;
+            border: none;
+        }
+
+        .btn-rainbow:hover {
+            transform: translateY(-2px);
+            animation: rainbow 1s ease infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Neutral gray button for "Subscribe for Updates" */
+        .btn-neutral {
+            background: var(--medium-gray);
+            color: var(--white);
+        }
+
+        .btn-neutral:hover {
+            background: var(--dark-gray);
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         .footer {
             background: var(--primary-dark-blue);
@@ -526,6 +605,7 @@
         .footer-info p {
             margin: 0;
             opacity: 0.8;
+            color: var(--white);
         }
 
         .social-links {
@@ -550,6 +630,22 @@
         .social-links a:hover {
             background: var(--n8n-orange);
             transform: translateY(-3px);
+        }
+
+        /* Ensure X (Twitter) icon is visible in both themes */
+        .social-links a .fab.fa-x-twitter {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        /* Make sure all social icons are properly visible */
+        .social-links a i {
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .social-links a:hover i {
+            opacity: 1;
         }
 
         /* Responsive Design */
@@ -819,7 +915,7 @@
                     </div>
                 </div>
                 <div class="pricing-buttons">
-                    <a href="https://johnklad.gumroad.com/l/hdvcbc" class="btn btn-primary" target="_blank">
+                    <a href="https://johnklad.gumroad.com/l/hdvcbc" class="btn btn-green" target="_blank">
                         <i class="fas fa-shopping-cart"></i>
                         Buy a License Key
                     </a>
@@ -827,11 +923,11 @@
                         <i class="fab fa-bitcoin"></i>
                         Buy with Coin
                     </a>
-                    <a href="https://ko-fi.com/K3K31LWLIE" class="btn btn-support" target="_blank">
+                    <a href="https://ko-fi.com/K3K31LWLIE" class="btn btn-rainbow" target="_blank">
                         <i class="fas fa-coffee"></i>
                         Buy Me a Coffee
                     </a>
-                    <a href="#" class="btn btn-secondary">
+                    <a href="#" class="btn btn-neutral">
                         <i class="fas fa-bell"></i>
                         Subscribe for Updates
                     </a>
