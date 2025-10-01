@@ -1,1 +1,0 @@
-The fastest and simplest way to deploy a production-ready n8n instance on your local Windows machine or a fresh cloud VPS. Our user-friendly .exe installers are designed for everyone—no command-line experience needed.
