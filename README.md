@@ -214,6 +214,6 @@ By purchasing and using this software, you agree to these terms.
 
 📑 License Files
 
-📄 License (English)
+📄 License 
 
-📄 Лицензия (Русский)
+
