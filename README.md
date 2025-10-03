@@ -119,12 +119,12 @@ The best choice for a publicly accessible, secure, and scalable n8n instance.
 Download the required installer from the **[Releases](https://github.com/JohnKlad/n8n-one-click/releases)** page of this repository.
 
 #### For Local Windows Installation:
-1.  Download and run `install_n8n_windows.exe`.
+1.  Download and run **[install_n8n_windows.exe](https://github.com/JohnKlad/n8n-one-click/releases/download/v1.0/install_n8n_windows.exe)**.
 2.  The installer will automatically set up and launch n8n.
 3.  Once finished, your instance will open at `http://localhost:5678`.
 
 #### For Cloud VPS Installation:
-1.  Download and run `install_n8n_vps.exe`.
+1.  Download and run **[install_n8n_vps.exe](https://github.com/JohnKlad/n8n-one-click/releases/download/v.2.0/install_n8n_vps.exe)**.
 2.  The interactive installer will guide you. Enter the following details when prompted:
     -   Your **License Key**.
     -   Your VPS **IP Address**.
