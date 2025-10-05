@@ -2,7 +2,8 @@
 
 # [![Buy a License](https://img.shields.io/badge/Buy%20a-License-orange?style=for-the-badge&logo=gumroad)](https://johnklad.gumroad.com/l/hdvcbc)                         [![Pay with Crypto](https://img.shields.io/badge/Pay%20with-Crypto-blue?style=for-the-badge&logo=bitcoin)](https://commerce.coinbase.com/checkout/c0f7e153-4e20-4a4d-b562-3e29190490dd)
 # [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/K3K31LWLIE)
-# [install_n8n_windows.exe](https://github.com/JohnKlad/n8n-one-click/releases/download/v1.0/install_n8n_windows.exe)                                                      [install_n8n_vps.exe](https://github.com/JohnKlad/n8n-one-click/releases/download/v.2.0/install_n8n_vps.exe)
+# [install_n8n_windows.exe](https://github.com/JohnKlad/n8n-one-click/releases/download/v1.0/install_n8n_windows.exe)                                                      
+# [install_n8n_vps.exe](https://github.com/JohnKlad/n8n-one-click/releases/download/v.2.0/install_n8n_vps.exe)
 
 Welcome to the n8n One-Click Installer! This project provides the fastest and simplest way to deploy a production-ready n8n instance on your local Windows machine or a fresh cloud VPS.
 
