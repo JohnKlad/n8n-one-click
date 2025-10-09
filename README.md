@@ -12,6 +12,12 @@ Our user-friendly `.exe` installers are designed for everyone—no command-line 
 The fastest way to deploy a production-ready n8n instance on your Windows machine or any cloud VPS. **No command line or technical skills needed.**
 
 ---
+## 🆓 Free Google Cloud Server for n8n
+
+You can create a **free server for n8n using Google Cloud** (within free tier limits).  
+For a step-by-step guide, see our Wiki page:  
+[How to Create a Free Google Cloud Server for n8n](https://github.com/JohnKlad/n8n-one-click/wiki/How-to-Create-a-Free-Google-Cloud-Server-for-n8n)
+---
 
 ## How It Works: The "One-Click" Magic ✨
 
