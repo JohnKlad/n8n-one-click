@@ -5,6 +5,7 @@
 ### For Local Windows Installation: [install_n8n_windows.exe](https://github.com/JohnKlad/n8n-one-click/releases/download/v1.0/install_n8n_windows.exe)                                                      
 ### For Cloud VPS Installation: [install_n8n_vps.exe](https://github.com/JohnKlad/n8n-one-click/releases/download/v.2.0/install_n8n_vps.exe)
 
+---
 Welcome to the n8n One-Click Installer! This project provides the fastest and simplest way to deploy a production-ready n8n instance on your local Windows machine or a fresh cloud VPS.
 
 Our user-friendly `.exe` installers are designed for everyone—no command-line experience needed. They handle everything from server preparation to automatic SSL certificate generation, getting you up and running in minutes.
